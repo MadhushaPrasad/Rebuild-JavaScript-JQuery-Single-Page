@@ -5,7 +5,7 @@ function CustomerDTO(id, name, address, tp) {
     var __tp = tp;
 
     this.getCustomerID = function () {
-        return nic;
+        return _id;
     }
     this.getCustomerName = function () {
         return _name;
