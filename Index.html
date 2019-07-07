@@ -73,28 +73,72 @@
 </div>
 <!--Customer Form End-->
 <div class="container text-center">
-    <h1 class="text-success py-4 text-left">Welcome to Customer Form</h1>
+    <h1 class="text-success py-4 text-center">Welcome to Customer Form</h1>
     <h3 class="text-primary py-4"><i class="fas fa-user-plus"></i>Customer </h3>
 </div>
 
-<div class="d-flex justify-content-center">
-
-    <form class="w-50">
-        <input type="text" placeholder="ID" class="form-control " id="customerID" autocomplete="off"><br>
-        <input type="text" placeholder="Name" class="form-control " id="customername" autocomplete="off"><br>
-        <input type="text" placeholder="Address" class="form-control " id="customerAddress" autocomplete="off"><br>
-        <input type="text" placeholder="TelePhone" class="form-control " id="customerTP" autocomplete="off"><br>
-    </form>
+<div class="d-flex container">
+    <div class="row">
+        <div class="col-lg-12">
+            <form class="w-auto">
+                <input type="text" placeholder="ID" class="form-control " id="customerID" autocomplete="off"><br>
+                <input type="text" placeholder="Name" class="form-control " id="customername" autocomplete="off"><br>
+                <input type="text" placeholder="Address" class="form-control " id="customerAddress" autocomplete="off"><br>
+                <input type="text" placeholder="TelePhone" class="form-control " id="customerTP" autocomplete="off"><br>
+            </form>
+        </div>
+        <!--customer search panal-->
+        <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header bg-primary">Customer Search</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Input Name/NIC/Tp Here"
+                                   id="inputSearchCustomer">
+                        </div>
+                        <div class="form-group form-inline">
+                            <button class="btn btn-primary mb-2" id="searchCustomer">Search</button>
+                            &nbsp;&nbsp;&nbsp;
+                            <select class="form-control mb-2" id="selectorOP">
+                                <option>Name</option>
+                                <option>NIC</option>
+                                <option>Tp</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
 
 </div>
 <!--Register,Update,read and Delete Buttons-->
-<div class="d-flex justify-content-center">
+<div class="row">
+    <div class="d-flex justify-content-center col-sm-3 col-lg-12">
         <button class="btn btn-success" id="btnRegister">Register</button>
-        <button class="btn btn-primary" id="btnRead">Register</button>
+        <button class="btn btn-primary" id="btnRead">Read</button>
         <button class="btn btn-warning" id="btnUpdate">Update</button>
         <button class="btn btn-danger" id="btnDelete">Delete All</button>
+    </div>
 </div>
 
+<!--table-->
+<div class="container d-flex">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Tel</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody id="tbl-Customer">
+
+        </tbody>
+    </table>
+</div>
 
 <!--Customer Form End-->
 <footer>
