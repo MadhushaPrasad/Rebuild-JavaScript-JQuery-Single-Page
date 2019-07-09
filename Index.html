@@ -112,72 +112,176 @@
             </div>
         </div>
     </div>
-</div>
-<!--Register,Update,read and Delete Buttons-->
-<div class="row container-fluid">
-    <div class="d-flex">
-        <div class="col-sm-12 col-lg-3">
-            <button class="btn btn-success" id="btnRegister"
-                    style="margin-top:0.6em;margin-bottom: 1.5em; margin-right: 0.6em;">Register
-            </button>
-        </div>
-        <!--<div class="col-sm-12 col-lg-3">-->
-        <!--<button class="btn btn-primary" id="btnRead" style="margin-top:0.6em;margin-bottom: 1.5em; margin-right: 0.6em;">Read</button>-->
-        <!--</div>-->
-        <div class="col-sm-12 col-lg-3">
-            <button class="btn btn-warning" id="btnUpdate"
-                    style="margin-top:0.6em;margin-bottom: 1.5em;margin-right: 0.6em;">Update
-            </button>
-        </div>
-        <div class="col-sm-13 col-lg-3">
-            <button class="btn btn-danger" id="btnDeleteAll"
-                    style="margin-top:0.6em;margin-bottom: 1.5em; margin-right: 0.6em;">DeleteAll
-            </button>
-        </div>
-    </div>
-</div>
 
-<!--table-->
-<div class="row container-fluid d-flex">
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Address</th>
-            <th scope="col">Tel</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
-        </tr>
-        </thead>
-        <tbody id="tbl-Customer">
-
-        </tbody>
-    </table>
-</div>
-
-<!--Customer Delete Modal-->
-<div class="modal fade" id="cusDel" role="dialog">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content b">
-            <div class="modal-header bg-danger dc">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-                <h4 class="modal-title">Confirm</h4>
+    <!--Register,Update,read and Delete Buttons-->
+    <div class="row container-fluid">
+        <div class="d-flex">
+            <div class="col-sm-12 col-lg-3">
+                <button class="btn btn-success" id="btnRegister"
+                        style="margin-top:0.6em;margin-bottom: 1.5em; margin-right: 0.6em;">Register
+                </button>
             </div>
-            <div class="modal-body">
-                <p>Do You Want To Delete This Customer..?</p>
+            <!--<div class="col-sm-12 col-lg-3">-->
+            <!--<button class="btn btn-primary" id="btnRead" style="margin-top:0.6em;margin-bottom: 1.5em; margin-right: 0.6em;">Read</button>-->
+            <!--</div>-->
+            <div class="col-sm-12 col-lg-3">
+                <button class="btn btn-warning" id="btnUpdate"
+                        style="margin-top:0.6em;margin-bottom: 1.5em;margin-right: 0.6em;">Update
+                </button>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="crd" data-dismiss="modal">Yes</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <div class="col-sm-13 col-lg-3">
+                <button class="btn btn-danger" id="btnDeleteAll"
+                        style="margin-top:0.6em;margin-bottom: 1.5em; margin-right: 0.6em;">DeleteAll
+                </button>
             </div>
         </div>
     </div>
-</div>
-<!--Customer Delete Modal Ended-->
 
+    <!--table-->
+    <div class="row container-fluid d-flex">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Tel</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody id="tbl-Customer">
+
+            </tbody>
+        </table>
+    </div>
+
+    <!--Customer Delete Modal-->
+    <div class="modal fade" id="cusDel" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content b">
+                <div class="modal-header bg-danger dc">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title">Confirm</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Do You Want To Delete All Customers..?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="crd" data-dismiss="modal">Yes</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Customer Delete Modal Ended-->
+</div>
 <!--Customer Form End-->
+
+<!--Item Form Start-->
+<div id="section02">
+
+    <div class="row container text-center">
+        <h1 class="text-success py-4 text-center col-sm-12 col-lg-12">Welcome to Item Form</h1>
+        <h3 class="text-primary py-4 col-sm-12 col-lg-12"><i class="fas fa-sitemap"></i>Item </h3>
+    </div>
+
+    <div class="row d-flex container">
+
+        <div class="col-lg-6">
+            <form class="w-auto">
+                <input type="text" placeholder="Code" class="form-control " id="itemCode" autocomplete="off"><br>
+                <input type="text" placeholder="Name" class="form-control " id="itemName"
+                       autocomplete="off"><br>
+                <input type="text" placeholder="Price" class="form-control " id="itemPrice"
+                       autocomplete="off"><br>
+                <input type="text" placeholder="Quantity" class="form-control " id="itemQTY" autocomplete="off"><br>
+            </form>
+        </div>
+        <!--customer search panal-->
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header bg-primary">Item Search</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Input Code/Name/ Here"
+                               id="inputSearchItem">
+                    </div>
+                    <div class="form-group form-inline">
+                        <button class="btn btn-primary mb-2" id="searchItem" style="margin-top: 0;">Search</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <select class="form-control mb-2" id="selectorIP">
+                            <option>Code</option>
+                            <option>Name</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Register,Update,read and Delete Buttons-->
+    <div class="row container-fluid">
+        <div class="d-flex">
+            <div class="col-sm-12 col-lg-3">
+                <button class="btn btn-success" id="btnItemregis"
+                        style="margin-top:0.6em;margin-bottom: 1.5em; margin-right: 0.6em;">Register
+                </button>
+            </div>
+            <!--<div class="col-sm-12 col-lg-3">-->
+            <!--<button class="btn btn-primary" id="btnRead" style="margin-top:0.6em;margin-bottom: 1.5em; margin-right: 0.6em;">Read</button>-->
+            <!--</div>-->
+            <div class="col-sm-12 col-lg-3">
+                <button class="btn btn-warning" id="btnItemUpdate"
+                        style="margin-top:0.6em;margin-bottom: 1.5em;margin-right: 0.6em;">Update
+                </button>
+            </div>
+            <div class="col-sm-13 col-lg-3">
+                <button class="btn btn-danger" id="btnItemDeleteAll"
+                        style="margin-top:0.6em;margin-bottom: 1.5em; margin-right: 0.6em;">DeleteAll
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--table-->
+    <div class="row container-fluid d-flex">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Cod</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody id="tbl-Item">
+
+            </tbody>
+        </table>
+    </div>
+    <!--Customer Delete Modal-->
+    <div class="modal fade" id="cusDel01" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content b">
+                <div class="modal-header bg-danger dc">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title">Confirm</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Do You Want To Delete All Customers..?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="crd01" data-dismiss="modal">Yes</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Customer Delete Modal Ended-->
 </div>
+<!--Item Form End-->
 <footer>
     <div class="card text-center bg-dark text-light">
         <div class="card-header">
