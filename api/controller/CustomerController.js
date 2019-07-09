@@ -18,6 +18,24 @@ $('#orders').click(function () {
     $('#section03').css('display', 'block');
 });
 
+$('#customerID,#customerName,#customerAddress,#customerTP').on('keypress', function (e) {
+    if (e.keyCode == 13) {
+        if ($('#customerID').val() == "") {
+            $('#customerID').focus();
+        }
+        else if ($('#customerName').val() == "") {
+            $('#customerName').focus();
+        } else if ($('#customerAddress').val() == "") {
+            $('#customerAddress').focus();
+        } else if ($('#customerTP').val() == "") {
+            $('#customerTP').focus();
+        } else {
+            $(this).next().focus();
+        }
+        // alert("Hi its work Bro!!");
+    }
+});
+
 function addCustomer(id, name, address, tel) {
     var c1 = new CustomerDTO(id, name, address, tel);
     customerTable.push(c1);
@@ -75,7 +93,7 @@ $('#btnUpdate').click(function () {
     var address = $("#customerAddress").val();
     var tp = $("#customerTP").val();
     updateCustomer(id,name,address,tp);
-})
+});
 
 function deletemodal() {
     deleteCustomer();
