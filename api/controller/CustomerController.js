@@ -1,14 +1,24 @@
 function addCustomer(id, name, address, tel) {
-    console.log(id);
-    console.log(name);
-    console.log(address);
     var c1 = new CustomerDTO(id, name, address, tel);
     customerTable.push(c1);
     clearTextField();
 }
 
-function deleteCustomer() {
+function updateCustomer(id, name, address, tel) {
+    for (var i in customerTable) {
+        var id = customerTable[i].setCustomerID();
+        var id = customerTable[i].setCustomerName();
+        var id = customerTable[i].setCustomerAddress();
+        var id = customerTable[i].setCustomerTp();
+        customerTable.splice(i, 1);
+        $("#tbl-Customer").empty();
+        getAllCustomer();
+    }
+}
 
+function deleteCustomer() {
+            customerTable.splice(0, 1);
+            return true;
 }
 
 function getAllCustomer() {
@@ -29,7 +39,7 @@ function getAllCustomer() {
             "<td>" + id + "</td>" +
             "<td>" + name + "</td>" +
             "<td>" + address + "</td>" +
-            "<td>" + tp + "</td>" +"<td><i class='fas fa-edit btnedit'></i></td>"+"<td><i class='fas fa-trash-alt btndelete'></i></td>" +
+            "<td>" + tp + "</td>" +"<td><i class='fas fa-edit btnedit'></i></td>"+"<td><i class='fas fa-trash-alt btnedelte' onclick='deleteTableRow()'></i></td>" +
             +"</tr>";
         $("#tbl-Customer").append(tblRow);
     }
@@ -44,6 +54,20 @@ $("#btnRegister").click(function () {
     getAllCustomer();
 });
 
+$('#btnDeleteAll').click(function () {
+   deleteCustomer();
+    $("#tbl-Customer").empty();
+
+});
+
+function deleteTableRow() {
+    // var table = document.getElementsByClassName("btnedelte");
+    // console.dir(table);
+    $('table tbody tr').on('click',function () {
+        $(this).remove();
+    });
+}
+
 function clearTextField() {
     $("#customerID").val("");
     $("#customerName").val("");
@@ -51,3 +75,21 @@ function clearTextField() {
     $("#customerTP").val("");
 }
 
+
+
+// select a row
+// $('table tbody tr').click(function () {
+//     var customerID = $($(this).children()[0]).text();
+//     var customerName = $($(this).children()[1]).text();
+//     var customerAddress = $($(this).children()[2]).text();
+//     var customerTP = $($(this).children()[3]).text();
+//     $('#customerID').val(customerID);
+//     $('#customerName').val(customerName);
+//     $('#customerAddress').val(customerAddress);
+//     $('#customerTP').val(customerTP);
+// });
+//
+//
+// $('table tbody tr .btnedelte').on('dblclick',function () {
+//     $(this).remove();
+// });
