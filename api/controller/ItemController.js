@@ -56,6 +56,25 @@ function updateItem(code, name, price, qty) {
     }
 }
 
+function searchItem(code) {
+    for (var i in itemTabale) {
+        if (itemTabale[i].getItemCode() == code){
+            var code = itemTabale[i].getItemCode();
+            var name = itemTabale[i].getItemName();
+            var price = itemTabale[i].getItemPrice();
+            var qty = itemTabale[i].getItemQty();
+
+            $("#itemCode").val(code);
+            $("#itemName").val(name);
+            $("#itemPrice").val(price);
+            $("#itemQTY").val(qty);
+        }else {
+            alert("There is No Any Item Like That..!");
+        }
+    }
+}
+
+
 function deleteItem() {
     for (var i in itemTabale) {
         itemTabale.splice(i, 1);
@@ -101,6 +120,16 @@ $('#btnItemUpdate').click(function () {
         updateItem(code, name, price, qty);
     }
 });
+
+$('#searchItem').click(function () {
+    var code = $('#inputSearchItem').val();
+    if (code == "") {
+        alert("Please Input Item Code For Search..");
+    } else {
+        searchItem(code);
+    }
+});
+
 
 function deletemodal() {
     deleteItem();

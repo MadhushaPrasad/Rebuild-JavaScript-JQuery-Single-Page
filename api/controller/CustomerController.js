@@ -45,16 +45,35 @@ function addCustomer(id, name, address, tel) {
 function updateCustomer(id, name, address, tel) {
     for (var i in customerTable) {
         var idd = customerTable[i].getCustomerID();
-        if(id == idd) {
+        if (id == idd) {
             customerTable.splice(i, 1);
             $('#tbl-Customer').empty();
             addCustomer(id, name, address, tel);
             getAllCustomer();
-        }else {
+        } else {
             alert("Your Customer Id is Incorrect..!");
         }
     }
 }
+
+function searchCustomer(id) {
+    for (var i in customerTable) {
+        if (customerTable[i].getCustomerID() == id) {
+            var id = customerTable[i].getCustomerID();
+            var name = customerTable[i].getCustomerName();
+            var address = customerTable[i].getCustomerAddress();
+            var tp = customerTable[i].getCustomerTP();
+
+            $("#customerID").val(id);
+            $("#customerName").val(name);
+            $("#customerAddress").val(address);
+            $("#customerTP").val(tp);
+        } else {
+            alert("There is No Any Customer Like That..!");
+        }
+    }
+}
+
 
 function deleteCustomer() {
     for (var i in customerTable) {
@@ -91,23 +110,32 @@ $("#btnRegister").click(function () {
 
 
 $('#btnUpdate').click(function () {
-    var cId=$('#inputSearchCustomer').val();
+    var cId = $('#inputSearchCustomer').val();
     var id = $("#customerID").val();
     var name = $("#customerName").val();
     var address = $("#customerAddress").val();
     var tp = $("#customerTP").val();
-    if (id == ""){
+    if (id == "") {
         alert("Please input Customer ID for update Item..");
-    }else {
+    } else {
         updateCustomer(id, name, address, tp);
     }
 });
 
+$('#searchCustomer').click(function () {
+    var cId = $('#inputSearchCustomer').val();
+    if (cId == "") {
+        alert("Please Input Customer Id For Search..");
+    } else {
+        searchCustomer(cId);
+    }
+});
+
 function deletemodal() {
-   deleteCustomer();
-   alert("Hi")
-   $('#tbl-Customer').empty();
-   alert("Hello");
+    deleteCustomer();
+    alert("Hi")
+    $('#tbl-Customer').empty();
+    alert("Hello");
 }
 
 var rres = true;
@@ -119,7 +147,7 @@ $('#btnDeleteAll').click(function () {
         if ($('#crd00').click(function () {
             deletemodal();
             alert("dddddddssf");
-        }));
+        })) ;
     } else {
         $('#btnDeleteAll').focus();
         alert('Welcome Again..!');
