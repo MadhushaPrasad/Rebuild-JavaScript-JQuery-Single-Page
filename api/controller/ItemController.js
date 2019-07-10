@@ -38,25 +38,29 @@ $('#itemCode,#itemName,#itemPrice,#itemQTY').on('keypress', function (e) {
 function addItem(code, name, price, qty) {
     var c1 = new ItemDTO(code, name, price, qty);
     itemTabale.push(c1);
-    clearTextField();
+    clearTextFieldItem();
 }
 
-// function updateItem(id, name, address, tel) {
-//     for (var i in customerTable) {
-//         var id = customerTable[i].setCustomerID();
-//         var name = customerTable[i].setCustomerName();
-//         var address = customerTable[i].setCustomerAddress();
-//         var tel = customerTable[i].setCustomerTp();
-//         customerTable.splice(i, 1);
-//         $("#tbl-Customer").empty();
-//         addCustomer(id,name,address,tp);
-//         getAllCustomer();
-//     }
-// }
+function updateItem(code, name, price, qty) {
 
-function deleteCustomer() {
-    itemTabale.splice(0, 1);
-    return true;
+    for (var i in itemTabale) {
+        var id = itemTabale[i].getItemCode();
+        if(id == code) {
+            itemTabale.splice(i, 1);
+            $('#tbl-Item').empty();
+            addItem(code, name, price, qty);
+            getAllItem();
+        }else {
+            alert("Your Item Code is Incorrect..!");
+        }
+    }
+}
+
+function deleteItem() {
+    for (var i in itemTabale) {
+        itemTabale.splice(i, 1);
+        return true;
+    }
 }
 
 function getAllItem() {
@@ -86,15 +90,20 @@ $("#btnItemregis").click(function () {
 });
 
 $('#btnItemUpdate').click(function () {
+    var icode = $('#inputSearchItem').val();
     var code = $("#itemCode").val();
     var name = $("#itemName").val();
     var price = $("#itemPrice").val();
     var qty = $("#itemQTY").val();
-    updateItem(code, name, price, qty);
+    if (code == ""){
+        alert("Please input ItemCede for update Item..");
+    }else {
+        updateItem(code, name, price, qty);
+    }
 });
 
 function deletemodal() {
-    deleteCustomer();
+    deleteItem();
     $("#tbl-Item").empty();
 }
 
@@ -106,7 +115,7 @@ $('#btnItemDeleteAll').click(function () {
 
         if ($('#crd01').click(function () {
             deletemodal();
-        })) ;
+        }));
     } else {
         $('#btnItemDeleteAll').focus();
         alert('Welcome Again..!');
@@ -121,7 +130,7 @@ function deleteTableRow() {
     });
 }
 
-function clearTextField() {
+function clearTextFieldItem() {
     $("#itemCode").val("");
     $("#itemName").val("");
     $("#itemPrice").val("");
