@@ -38,7 +38,7 @@ $('#itemCode,#itemName,#itemPrice,#itemQTY').on('keypress', function (e) {
 function addItem(code, name, price, qty) {
     var c1 = new ItemDTO(code, name, price, qty);
     itemTabale.push(c1);
-    clearTextFieldItem()
+    clearTextField();
 }
 
 // function updateItem(id, name, address, tel) {
@@ -121,7 +121,7 @@ function deleteTableRow() {
     });
 }
 
-function clearTextFieldItem() {
+function clearTextField() {
     $("#itemCode").val("");
     $("#itemName").val("");
     $("#itemPrice").val("");

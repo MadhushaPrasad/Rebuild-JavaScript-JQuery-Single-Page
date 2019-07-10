@@ -42,22 +42,44 @@ function addCustomer(id, name, address, tel) {
     clearTextField();
 }
 
-// function updateCustomer(id, name, address, tel) {
-//     for (var i in customerTable) {
-//         var id = customerTable[i].setCustomerID();
-//         var name = customerTable[i].setCustomerName();
-//         var address = customerTable[i].setCustomerAddress();
-//         var tel = customerTable[i].setCustomerTp();
-//         customerTable.splice(i, 1);
-//         $("#tbl-Customer").empty();
-//         addCustomer(id,name,address,tp);
-//         getAllCustomer();
-//     }
-// }
+function updateCustomer(id, name, address, tel) {
+    for (var i in customerTable) {
+        var idd = customerTable[i].getCustomerID();
+        if (id == idd) {
+            customerTable.splice(i, 1);
+            $('#tbl-Customer').empty();
+            addCustomer(id, name, address, tel);
+            getAllCustomer();
+        } else {
+            alert("Your Customer Id is Incorrect..!");
+        }
+    }
+}
+
+function searchCustomer(id) {
+    for (var i in customerTable) {
+        if (customerTable[i].getCustomerID() == id) {
+            var id = customerTable[i].getCustomerID();
+            var name = customerTable[i].getCustomerName();
+            var address = customerTable[i].getCustomerAddress();
+            var tp = customerTable[i].getCustomerTP();
+
+            $("#customerID").val(id);
+            $("#customerName").val(name);
+            $("#customerAddress").val(address);
+            $("#customerTP").val(tp);
+        } else {
+            alert("There is No Any Customer Like That..!");
+        }
+    }
+}
+
 
 function deleteCustomer() {
-    customerTable.splice(0, 1);
-    return true;
+    for (var i in customerTable) {
+        customerTable.splice(i, 1);
+        return true;
+    }
 }
 
 function getAllCustomer() {
@@ -88,16 +110,32 @@ $("#btnRegister").click(function () {
 
 
 $('#btnUpdate').click(function () {
+    var cId = $('#inputSearchCustomer').val();
     var id = $("#customerID").val();
     var name = $("#customerName").val();
     var address = $("#customerAddress").val();
     var tp = $("#customerTP").val();
-    updateCustomer(id,name,address,tp);
+    if (id == "") {
+        alert("Please input Customer ID for update Item..");
+    } else {
+        updateCustomer(id, name, address, tp);
+    }
+});
+
+$('#searchCustomer').click(function () {
+    var cId = $('#inputSearchCustomer').val();
+    if (cId == "") {
+        alert("Please Input Customer Id For Search..");
+    } else {
+        searchCustomer(cId);
+    }
 });
 
 function deletemodal() {
     deleteCustomer();
-    $("#tbl-Customer").empty();
+    alert("Hi")
+    $('#tbl-Customer').empty();
+    alert("Hello");
 }
 
 var rres = true;
@@ -106,8 +144,9 @@ $('#btnDeleteAll').click(function () {
         $('#cusDel').modal('toggle');
         $('#cusDel').modal('show');
 
-        if ($('#crd').click(function () {
+        if ($('#crd00').click(function () {
             deletemodal();
+            alert("dddddddssf");
         })) ;
     } else {
         $('#btnDeleteAll').focus();
