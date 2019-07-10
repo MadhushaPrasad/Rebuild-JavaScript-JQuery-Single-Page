@@ -22,7 +22,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <ul class="offset-5  navbar-nav">
                 <li class="nav-item ">
-                    <a class="nav-link " href="HomePage.html">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link " href="Index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="#">Resevations</a>
@@ -230,7 +230,7 @@
         </article>
     </section>
 </div>
-<!--Customer Form End-->
+<!--Customer Form start-->
 <div id="section01">
     <div class="row container text-center">
         <h1 class="text-success py-4 text-center col-sm-12 col-lg-12">Welcome to Customer Form</h1>
@@ -342,7 +342,7 @@
 
     <div class="row container text-center">
         <h1 class="text-success py-4 text-center col-sm-12 col-lg-12">Welcome to Item Form</h1>
-        <h3 class="text-primary py-4 col-sm-12 col-lg-12"><i class="fas fa-sitemap"></i>Item </h3>
+        <h3 class="text-primary text-center py-4 col-sm-12 col-lg-12"><i class="fas fa-sitemap"></i>Item </h3>
     </div>
 
     <div class="row d-flex container">
@@ -357,7 +357,7 @@
                 <input type="text" placeholder="Quantity" class="form-control " id="itemQTY" autocomplete="off"><br>
             </form>
         </div>
-        <!--customer search panal-->
+        <!--Item search panal-->
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-header bg-primary">Item Search</div>
@@ -420,7 +420,7 @@
             </tbody>
         </table>
     </div>
-    <!--Customer Delete Modal-->
+    <!--Item Delete Modal-->
     <div class="modal fade" id="cusDel01" role="dialog">
         <div class="modal-dialog modal-sm">
             <div class="modal-content b">
@@ -429,7 +429,7 @@
                     <h4 class="modal-title">Confirm</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Do You Want To Delete All Customers..?</p>
+                    <p>Do You Want To Delete All Items..?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" id="crd01" data-dismiss="modal">Yes</button>
@@ -438,9 +438,83 @@
             </div>
         </div>
     </div>
-    <!--Customer Delete Modal Ended-->
+    <!--Item Delete Modal Ended-->
 </div>
 <!--Item Form End-->
+<!--Order Form Start-->
+<div id="section03">
+    <div class="row container text-center">
+        <h1 class="text-success py-4 text-center col-sm-12 col-lg-12">Welcome to Order Form</h1>
+        <h3 class="text-primary text-center py-4 col-sm-12 col-lg-12"><i class="fas fa-truck-loading"></i>Order </h3>
+    </div>
+    <div class="row container-fluid">
+
+        <div class="col-lg-6">
+            <h3 class="text-primary text-xl-center text-center py-4 col-sm-12 col-lg-12"><i class="fas fa-user-plus"></i>Customer </h3>
+            <form class="w-auto">
+                <select class="form-control mb-2" id="selectorOP01">
+
+                </select>
+                <input type="text" placeholder="Name" class="form-control " id="OcustomerName"
+                       autocomplete="off"><br>
+                <input type="text" placeholder="Address" class="form-control " id="OcustomerAddress"
+                       autocomplete="off"><br>
+                <input type="text" placeholder="TelePhone" class="form-control " id="OcustomerTP" autocomplete="off"><br>
+            </form>
+        </div>
+        <div class="col-lg-6">
+            <h3 class="text-primary text-xl-center text-center py-4 col-sm-12 col-lg-12"><i class="fas fa-sitemap"></i>Item </h3>
+            <form class="w-auto">
+                <select class="form-control mb-2" id="selectorOP001">
+
+                </select>
+                <input type="text" placeholder="Name" class="form-control " id="OitemName"
+                       autocomplete="off"><br>
+                <input type="text" placeholder="Price" class="form-control " id="OitemPrice"
+                       autocomplete="off"><br>
+                <input type="text" placeholder="Quantity" class="form-control " id="OitemQTY" autocomplete="off"><br>
+            </form>
+        </div>
+    </div><hr>
+    <div class="row container text-center">
+        <div class="col-6">
+            <input type="text" placeholder="Order ID" class="form-control " id="OId"
+                   autocomplete="off"><br>
+            <input type="date" placeholder="Date" class="form-control " id="ODate"
+            autocomplete="on"><br>
+        </div>
+
+        <!--place order Button-->
+        <div class="col-6">
+            <button class="btn btn-warning btnPlaceOrder">Place Order</button>
+            <button class="btn btn-danger btnClearOrder">Clear All</button><br><br>
+            <button class="btn btn-primary btnNewCustomer" data-target="#section01">New Customer</button>
+            <button class="btn btn-success btnNewItem" data-target="#section02">New Item</button>
+        </div>
+    </div><hr>
+
+    <!--table-->
+    <div class="row container-fluid d-flex">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Code</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody id="tbl-Order">
+
+            </tbody>
+        </table>
+    </div>
+    <!--Order Form End-->
+</div>
 <footer>
     <div class="card text-center bg-dark text-light">
         <div class="card-header">
