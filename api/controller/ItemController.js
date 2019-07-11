@@ -35,26 +35,52 @@ $('#itemCode,#itemName,#itemPrice,#itemQTY').on('keypress', function (e) {
     }
 });
 
+function clearTextFieldItem() {
+    $("#itemCode").val("");
+    $("#itemName").val("");
+    $("#itemPrice").val("");
+    $("#itemQTY").val("");
+}
+
 function addItem(code, name, price, qty) {
     var c1 = new ItemDTO(code, name, price, qty);
     itemTabale.push(c1);
-    clearTextField();
+    clearTextFieldItem();
 }
 
-// function updateItem(id, name, address, tel) {
-//     for (var i in customerTable) {
-//         var id = customerTable[i].setCustomerID();
-//         var name = customerTable[i].setCustomerName();
-//         var address = customerTable[i].setCustomerAddress();
-//         var tel = customerTable[i].setCustomerTp();
-//         customerTable.splice(i, 1);
-//         $("#tbl-Customer").empty();
-//         addCustomer(id,name,address,tp);
-//         getAllCustomer();
-//     }
-// }
+function updateItem(code, name, price, qty) {
+    for (var i in itemTabale) {
+        var idd = itemTabale[i].getItemCode();
+        if (code == idd) {
+            itemTabale.splice(i, 1);
+            $('#tbl-Item').empty();
+            addItem(code, name, price, qty);
+            getAllItem();
+        } else {
+            alert("Your Customer Id is Incorrect..!");
+        }
+    }
+}
 
-function deleteCustomer() {
+function searchItem(code) {
+    for (var i in itemTabale) {
+        if (itemTabale[i].getItemCode() == code) {
+            var code = itemTabale[i].getItemCode();
+            var name = itemTabale[i].getItemName();
+            var price = itemTabale[i].getItemPrice();
+            var qty = itemTabale[i].getItemQty();
+
+            $("#itemCode").val(code);
+            $("#itemName").val(name);
+            $("#itemPrice").val(price);
+            $("#itemQTY").val(qty);
+        } else {
+            alert("There is No Any Item Like That..!");
+        }
+    }
+}
+
+function deleteItem() {
     itemTabale.splice(0, 1);
     return true;
 }
@@ -84,17 +110,30 @@ $("#btnItemregis").click(function () {
     addItem(code, name, price, qty);
     getAllItem();
 });
-
 $('#btnItemUpdate').click(function () {
+    var icode = $('#inputSearchItem').val();
     var code = $("#itemCode").val();
     var name = $("#itemName").val();
     var price = $("#itemPrice").val();
     var qty = $("#itemQTY").val();
-    updateItem(code, name, price, qty);
+    if (code == "") {
+        alert("Please input ItemCede for update Item..");
+    } else {
+        updateItem(code, name, price, qty);
+    }
 });
 
-function deletemodal() {
-    deleteCustomer();
+$('#searchItem').click(function () {
+    var code = $('#inputSearchItem').val();
+    if (code == "") {
+        alert("Please Input Item Code For Search..");
+    } else {
+        searchItem(code);
+    }
+});
+
+function deleteItemModal() {
+    deleteItem();
     $("#tbl-Item").empty();
 }
 
@@ -105,7 +144,7 @@ $('#btnItemDeleteAll').click(function () {
         $('#cusDel01').modal('show');
 
         if ($('#crd01').click(function () {
-            deletemodal();
+            deleteItemModal();
         })) ;
     } else {
         $('#btnItemDeleteAll').focus();
@@ -119,13 +158,6 @@ function deleteTableRow() {
     $('table tbody tr').on('click', function () {
         $(this).remove();
     });
-}
-
-function clearTextField() {
-    $("#itemCode").val("");
-    $("#itemName").val("");
-    $("#itemPrice").val("");
-    $("#itemQTY").val("");
 }
 
 function editItem() {

@@ -36,10 +36,19 @@ $('#customerID,#customerName,#customerAddress,#customerTP').on('keypress', funct
     }
 });
 
+
+function clearTextFieldCustomer() {
+    $("#customerID").val("");
+    $("#customerName").val("");
+    $("#customerAddress").val("");
+    $("#customerTP").val("");
+}
+
 function addCustomer(id, name, address, tel) {
     var c1 = new CustomerDTO(id, name, address, tel);
     customerTable.push(c1);
-    clearTextField();
+   clearTextFieldCustomer();
+
 }
 
 function updateCustomer(id, name, address, tel) {
@@ -93,7 +102,7 @@ function getAllCustomer() {
             "<td>" + id + "</td>" +
             "<td>" + name + "</td>" +
             "<td>" + address + "</td>" +
-            "<td>" + tp + "</td>" + "<td><i class='fas fa-edit btnedit' onclick='editCustomer()'></i></td>" + "<td><i class='fas fa-trash-alt btnedelte' onclick='deleteTableRow()'></i></td>" +
+            "<td>" + tp + "</td>" + "<td><i class='fas fa-edit btnedit' onclick='editCustomer()'></i></td>" + "<td><i class='fas fa-trash-alt btnedelte' onclick='deleteCustomerTableRow()'></i></td>" +
             +"</tr>";
         $("#tbl-Customer").append(tblRow);
     }
@@ -131,11 +140,10 @@ $('#searchCustomer').click(function () {
     }
 });
 
-function deletemodal() {
+function deleteCustomermodal() {
     deleteCustomer();
-    alert("Hi")
     $('#tbl-Customer').empty();
-    alert("Hello");
+
 }
 
 var rres = true;
@@ -145,8 +153,7 @@ $('#btnDeleteAll').click(function () {
         $('#cusDel').modal('show');
 
         if ($('#crd00').click(function () {
-            deletemodal();
-            alert("dddddddssf");
+            deleteCustomermodal()
         })) ;
     } else {
         $('#btnDeleteAll').focus();
@@ -154,21 +161,13 @@ $('#btnDeleteAll').click(function () {
     }
 });
 
-function deleteTableRow() {
+function deleteCustomerTableRow() {
     // var table = document.getElementsByClassName("btnedelte");
     // console.dir(table);
     $('table tbody tr').on('click', function () {
         $(this).remove();
     });
 }
-
-function clearTextField() {
-    $("#customerID").val("");
-    $("#customerName").val("");
-    $("#customerAddress").val("");
-    $("#customerTP").val("");
-}
-
 function editCustomer() {
     $('table tbody tr').click(function () {
         var customerID = $($(this).children()[0]).text();
