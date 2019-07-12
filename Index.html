@@ -483,10 +483,11 @@
 
         <!--place order Button-->
         <div class="col-6">
-            <button class="btn btn-warning btnPlaceOrder">Place Order</button>
-            <button class="btn btn-danger btnClearOrder">Clear All</button><br><br>
-            <button class="btn btn-primary btnNewCustomer" data-target="#section01">New Customer</button>
-            <button class="btn btn-success btnNewItem" data-target="#section02">New Item</button>
+            <button class="btn btn-warning" id="btnPlaceOrder">Place Order</button>
+            <button class="btn btn-danger" id="btnClearOrder">Clear All</button><br><br>
+            <button class="btn btn-danger" id="btnDeleteAllOrder">Delete All</button>
+            <button class="btn btn-primary" id="btnNewCustomer" data-target="#section01">New Customer</button>
+            <button class="btn btn-success" id="btnNewItem" data-target="#section02">New Item</button>
         </div>
     </div><hr>
 
@@ -495,8 +496,10 @@
         <table class="table table-hover">
             <thead>
             <tr>
+                <th scope="col">OID</th>
                 <th scope="col">ID</th>
                 <th scope="col">Code</th>
+                <th scope="col">Date</th>
                 <th scope="col">Item Name</th>
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
@@ -510,6 +513,26 @@
             </tbody>
         </table>
     </div>
+
+    <!--Order Delete Modal-->
+    <div class="modal fade" id="cusDel02" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content b">
+                <div class="modal-header bg-danger dc">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title">Confirm</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Do You Want To Delete All Orders..?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="crd02" data-dismiss="modal">Yes</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Order Delete Modal Ended-->
     <!--Order Form End-->
 </div>
 <footer>
@@ -534,8 +557,10 @@
 <script src="js/bootstrap.bundle.js"></script>
 <script src="api/dto/CustomerDTO.js"></script>
 <script src="api/dto/ItemDTO.js"></script>
+<script src="api/dto/OrderDTO.js"></script>
 <script src="api/db/DataBase.js"></script>
 <script src="api/controller/CustomerController.js"></script>
 <script src="api/controller/ItemController.js"></script>
+<script src="api/controller/OrderController.js"></script>
 </body>
 </html>

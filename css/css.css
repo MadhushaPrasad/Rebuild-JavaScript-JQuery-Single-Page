@@ -13,6 +13,9 @@
 .container-fluid table{
     margin:0;
 }
+.container-fluid table tr{
+    margin: 0;
+}
 table .btnedit{
     color: darkgoldenrod;
     cursor: pointer;
