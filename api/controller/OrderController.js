@@ -1,6 +1,24 @@
-function getCustomerDetails() {
-    alert("sdgjhgs");
-    var id = $('form select option .opID').val();
+function checkStockAmount() {
+    for (var i in itemTabale){
+        var itemAmount=parseInt(itemTabale[i].getItemQty());//stock amount
+        var oderAmount= parseInt($('#OitemQTY').val());//order Amount
+        if (itemAmount >= oderAmount){
+            return true;
+        }else {
+            alert("Stock is limited..\n please be order items less than "+itemAmount);
+        }
+    }
+}
+// function checkPriceLimit(payPrice) {
+//
+//     for (var i in itemTabale) {
+//         var itemPrice =parseInt(itemTabale[i].getItemPrice());
+//
+//     }
+// }
+
+function getCustomerDetails(id) {
+    alert(id);
     for (var i in customerTable) {
         if (customerTable[i].getCustomerID() == id) {
             var name = customerTable[i].getCustomerName();
@@ -18,8 +36,8 @@ function getCustomerDetails() {
 }
 
 function getItemDetails() {
-    alert("dsfdsf");
-    var id = $('.opiID').val();
+    var id = $('#selectorOP001 option').val();
+    alert(id);
     for (var i in itemTabale) {
         if (itemTabale[i].getItemCode() == id) {
             var name = itemTabale[i].getItemName();
@@ -113,16 +131,6 @@ $(function () {
         $('#section02').css('display', 'block');
     })) ;
 });
-// var a = true;
-// $('#selectorOP01').click(function () {
-//     if (a) {
-//         customerID();
-//         itemID();
-//         a = false;
-//     } else {
-//         a = true;
-//     }
-// });
 
 function clearTextFieldOrder() {
     $('#OcustomerName').val("");
@@ -235,7 +243,6 @@ function getAllOrder() {
 
 $('#btnPlaceOrder').click(function () {
     var id = $('#selectorOP01').val();
-    alert(id);
     var name = $('#OcustomerName').val();
     var address = $('#OcustomerAddress').val();
     var tp = $('#OcustomerTP').val();
@@ -245,6 +252,13 @@ $('#btnPlaceOrder').click(function () {
     var iQty = $('#OitemQTY').val();
     var oID = $('#OId').val();
     var oDate = $('#ODate').val();
-    addOrder(id, name, address, tp, code, iName, iPrice, iQty, oID, oDate);
-    getAllOrder();
+    if (checkStockAmount()){
+        addOrder(id, name, address, tp, code, iName, iPrice, iQty, oID, oDate);
+        getAllOrder();
+    }
+    $("#selectorOP01").click(function () {
+        var id = $("selectorOP01").val();
+        getCustomerDetails(id);
+        alert("sghdghj");
+    })
 });
