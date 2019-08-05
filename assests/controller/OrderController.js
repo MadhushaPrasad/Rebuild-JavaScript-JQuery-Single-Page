@@ -17,56 +17,56 @@ function checkStockAmount() {
 //     }
 // }
 
-function getCustomerDetails(id) {
-    alert(id);
-    for (var i in customerTable) {
-        if (customerTable[i].getCustomerID() == id) {
-            var name = customerTable[i].getCustomerName();
-            var address = customerTable[i].getCustomerAddress();
-            var tp = customerTable[i].getCustomerTP();
-            alert(name);
-            alert(address);
-            alert(tp);
+// function getCustomerDetails(id) {
+//     alert(id);
+//     for (var i in customerTable) {
+//         if (customerTable[i].getCustomerID() == id) {
+//             var name = customerTable[i].getCustomerName();
+//             var address = customerTable[i].getCustomerAddress();
+//             var tp = customerTable[i].getCustomerTP();
+//             alert(name);
+//             alert(address);
+//             alert(tp);
+//
+//             $('#OcustomerName').val(name);
+//             $('#OcustomerAddress').val(address);
+//             $('#OcustomerTP').val(tp);
+//         }
+//     }
+// }
 
-            $('#OcustomerName').val(name);
-            $('#OcustomerAddress').val(address);
-            $('#OcustomerTP').val(tp);
-        }
-    }
-}
-
-function getItemDetails() {
-    var id = $('#selectorOP001 option').val();
-    alert(id);
-    for (var i in itemTabale) {
-        if (itemTabale[i].getItemCode() == id) {
-            var name = itemTabale[i].getItemName();
-            var price = itemTabale[i].getItemPrice();
-            var qty = itemTabale[i].getItemQty();
-            alert(name);
-            alert(price);
-            alert(qty);
-
-            $('#OitemName').val(name);
-            $('#OitemPrice').val(price);
-            $('#OitemQTY').val(qty);
-        }
-    }
-}
+// function getItemDetails() {
+//     var id = $('#selectorOP01').children();
+//     alert(id);
+//     for (var i in itemTabale) {
+//         if (itemTabale[i].getItemCode() == id) {
+//             var name = itemTabale[i].getItemName();
+//             var price = itemTabale[i].getItemPrice();
+//             var qty = itemTabale[i].getItemQty();
+//             alert(name);
+//             alert(price);
+//             alert(qty);
+//
+//             $('#OitemName').val(name);
+//             $('#OitemPrice').val(price);
+//             $('#OitemQTY').val(qty);
+//         }
+//     }
+// }
 
 function customerID() {
     for (var i in customerTable) {
         var id = customerTable[i].getCustomerID();
-        var option = "<option onclick='getCustomerDetails()' class='opID'>" + id + "</option>";
-        $('#selectorOP01').append(option);
+        var option = "<option class='opID'>" + id + "</option>";
+        $('#selectorOP01').appendChild(option);
     }
 }
 
 function itemID() {
     for (var i in itemTabale) {
         var code = itemTabale[i].getItemCode();
-        var option = "<option onclick='getItemDetails()' class='opiID'>" + code + "</option>";
-        $('#selectorOP001').append(option);
+        var option = "<option class='opiID'>" + code + "</option>";
+        $('#selectorOP001').appendChild(option);
     }
 }
 
@@ -256,9 +256,4 @@ $('#btnPlaceOrder').click(function () {
         addOrder(id, name, address, tp, code, iName, iPrice, iQty, oID, oDate);
         getAllOrder();
     }
-    $("#selectorOP01").click(function () {
-        var id = $("selectorOP01").val();
-        getCustomerDetails(id);
-        alert("sghdghj");
-    })
 });

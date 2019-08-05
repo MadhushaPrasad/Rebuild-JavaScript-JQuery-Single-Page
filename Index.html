@@ -5,10 +5,10 @@
     <title>Customer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="assests/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
           integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="assests/css/css.css">
 </head>
 <body>
 <header>
@@ -52,13 +52,13 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="img/h1-sl3.jpg" class="d-block w-100" alt="...">
+                <img src="assests/img/h1-sl3.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="img/h1-sl1.jpg" class="d-block w-100" alt="...">
+                <img src="assests/assests/img/h1-sl1.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="img/h2-sl2-1.jpg" class="d-block w-100" alt="...">
+                <img src="assests/img/h2-sl2-1.jpg" class="d-block w-100" alt="...">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -139,28 +139,28 @@
                 eu euismod turpis pulvinar. Vestibulum eget urna ac dolor consequat aliquam.</p>
             <div class="row bg-dark text-white">
                 <div class="col">
-                    <img src="img/h1-icon3.png">
+                    <img src="assests/img/h1-icon3.png">
                     <h3>Burger / Sandwich</h3>
                     <p>Lorem ipsum dolor sit amet, con
                         sectetur adipiscing elit. Suspen disse vitae ligula quis deserunt .
                     <p>
                 </div>
                 <div class="col">
-                    <img src="img/h1-icon2.png">
+                    <img src="assests/img/h1-icon2.png">
                     <h3>Cake Slices</h3>
                     <p>Lorem ipsum dolor sit amet, con
                         sectetur adipiscing elit. Suspen disse vitae ligula quis deserunt .
                     <p>
                 </div>
                 <div class="col">
-                    <img src="img/h1-icon1.png">
+                    <img src="assests/img/h1-icon1.png">
                     <h3>Seafood Lovers Specials</h3>
                     <p>Lorem ipsum dolor sit amet, con
                         sectetur adipiscing elit. Suspen disse vitae ligula quis deserunt .
                     <p>
                 </div>
                 <div class="col">
-                    <img src="img/h1-icon4.png">
+                    <img src="assests/img/h1-icon4.png">
                     <h3>Drink / Beer</h3>
                     <p>Lorem ipsum dolor sit amet, con
                         sectetur adipiscing elit. Suspen disse vitae ligula quis deserunt .
@@ -202,7 +202,7 @@
             <div class="row" style="width: 100%;height: 50%;">
                 <div class="col-lg-6">
                     <div class="wp-block-image margin-bottom-minus-17">
-                        <figure class="aligncenter"><img src="img/h1-detail2.png" alt="" class="wp-image-3302">
+                        <figure class="aligncenter"><img src="assests/img/h1-detail2.png" alt="" class="wp-image-3302">
                         </figure>
                         <h3 style="text-align:left" class="sc-heading">Reservation</h3>
                     </div>
@@ -224,7 +224,7 @@
                     </form>
                 </div>
                 <div class="col-lg-6">
-                    <img src="img/h1-detail1-252x300.png" style="width: max-content;height: max-content">
+                    <img src="assests/img/h1-detail1-252x300.png" style="width: max-content;height: max-content">
                 </div>
             </div>
         </article>
@@ -240,13 +240,13 @@
     <div class="row d-flex container">
 
         <div class="col-lg-6">
-            <form class="w-auto">
-                <input type="text" placeholder="ID" class="form-control " id="customerID" autocomplete="off"><br>
-                <input type="text" placeholder="Name" class="form-control " id="customerName"
+            <form class="w-auto" method="post" id="customerForm">
+                <input type="text" placeholder="ID" class="form-control " id="customerID" name="customerId" autocomplete="off"><br>
+                <input type="text" placeholder="Name" class="form-control " id="customerName" name="customerName"
                        autocomplete="off"><br>
-                <input type="text" placeholder="Address" class="form-control " id="customerAddress"
+                <input type="text" placeholder="Address" class="form-control " id="customerAddress" name="customrAddress"
                        autocomplete="off"><br>
-                <input type="text" placeholder="TelePhone" class="form-control " id="customerTP" autocomplete="off"><br>
+                <input type="text" placeholder="TelePhone" class="form-control " id="customerTP" name="customerTelephone" autocomplete="off"><br>
             </form>
         </div>
         <!--customer search panal-->
@@ -274,7 +274,7 @@
     <div class="row container-fluid">
         <div class="d-flex">
             <div class="col-sm-12 col-lg-3">
-                <button class="btn btn-success" id="btnRegister"
+                <button type="button" class="btn btn-success" id="btnRegister"
                         style="margin-top:0.6em;margin-bottom: 1.5em; margin-right: 0.6em;">Register
                 </button>
             </div>
@@ -282,12 +282,12 @@
             <!--<button class="btn btn-primary" id="btnRead" style="margin-top:0.6em;margin-bottom: 1.5em; margin-right: 0.6em;">Read</button>-->
             <!--</div>-->
             <div class="col-sm-12 col-lg-3">
-                <button class="btn btn-warning" id="btnUpdate"
+                <button type="button" class="btn btn-warning" id="btnUpdate"
                         style="margin-top:0.6em;margin-bottom: 1.5em;margin-right: 0.6em;">Update
                 </button>
             </div>
             <div class="col-sm-13 col-lg-3">
-                <button class="btn btn-danger" id="btnDeleteAll"
+                <button type="button" class="btn btn-danger" id="btnDeleteAll"
                         style="margin-top:0.6em;margin-bottom: 1.5em; margin-right: 0.6em;">DeleteAll
                 </button>
             </div>
@@ -502,7 +502,6 @@
                 <th scope="col">OID</th>
                 <th scope="col">ID</th>
                 <th scope="col">Code</th>
-                <th scope="col">Date</th>
                 <th scope="col">Item Name</th>
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
@@ -556,14 +555,15 @@
         </div>
     </div>
 </footer>
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/bootstrap.bundle.js"></script>
-<script src="api/dto/CustomerDTO.js"></script>
-<script src="api/dto/ItemDTO.js"></script>
-<script src="api/dto/OrderDTO.js"></script>
+<script src="assests/js/jquery-3.4.1.min.js"></script>
+<script src="assests/js/bootstrap.bundle.js"></script>
+<script src="api/model/CustomerDTO.js"></script>
+<script src="api/model/ItemDTO.js"></script>
+<script src="api/model/OrderDTO.js"></script>
 <script src="api/db/DataBase.js"></script>
-<script src="api/controller/CustomerController.js"></script>
-<script src="api/controller/ItemController.js"></script>
-<script src="api/controller/OrderController.js"></script>
+<script src="assests/controller/CustomerController.js"></script>
+<script src="assests/controller/ItemController.js"></script>
+<script src="assests/controller/OrderController.js"></script>
+<script src="assests/controller/indexController.js"></script>
 </body>
 </html>
